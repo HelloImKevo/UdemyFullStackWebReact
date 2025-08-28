@@ -597,6 +597,10 @@ git commit -m "Resolve merge conflicts"
 - **Node.js Best Practices:** https://github.com/goldbergyoni/nodebestpractices
 - **React Patterns:** https://reactpatterns.com/
 
+### Colors, Themes, Responsive Design
+- **CSS Named Colors:** https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
+- **Color Hunt Palettes:** https://colorhunt.co/
+
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/
 - **Reddit r/webdev:** https://www.reddit.com/r/webdev/

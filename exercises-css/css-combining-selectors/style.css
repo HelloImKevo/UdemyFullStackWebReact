@@ -1,3 +1,44 @@
+/* Language Navigation Styling */
+.language-nav {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-bottom: 2px solid #dee2e6;
+  margin-bottom: 20px;
+}
+
+.language-nav h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.language-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.language-nav li {
+  display: inline;
+}
+
+.language-nav a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background-color: white;
+  color: #495057;
+  font-size: 0.85rem;
+}
+
+.language-nav a:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
 /* Group */
 h1,
 h2 {

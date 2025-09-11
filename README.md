@@ -600,6 +600,9 @@ git commit -m "Resolve merge conflicts"
 ### Colors, Themes, Responsive Design
 - **CSS Named Colors:** https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
 - **Color Hunt Palettes:** https://colorhunt.co/
+- **CSS Flexbox Layout Guide:** https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- **CSS Flex Layout Interactive Tool:** https://appbrewery.github.io/flex-layout/
+- **CSS Flexbox Froggy Game:** https://appbrewery.github.io/flexboxfroggy/
 
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/

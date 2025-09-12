@@ -604,6 +604,7 @@ git commit -m "Resolve merge conflicts"
 - **CSS Flex Layout Interactive Tool:** https://appbrewery.github.io/flex-layout/
 - **CSS Flexbox Froggy Game:** https://appbrewery.github.io/flexboxfroggy/
 - **CSS Display Grid Weather Report:** https://aare.guru/bern/aare-wasser#bern
+- **CSS Grid Garden Game:** https://appbrewery.github.io/gridgarden/
 
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/

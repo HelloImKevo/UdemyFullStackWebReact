@@ -603,6 +603,7 @@ git commit -m "Resolve merge conflicts"
 - **CSS Flexbox Layout Guide:** https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - **CSS Flex Layout Interactive Tool:** https://appbrewery.github.io/flex-layout/
 - **CSS Flexbox Froggy Game:** https://appbrewery.github.io/flexboxfroggy/
+- **CSS Display Grid Weather Report:** https://aare.guru/bern/aare-wasser#bern
 
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/

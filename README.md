@@ -605,6 +605,8 @@ git commit -m "Resolve merge conflicts"
 - **CSS Flexbox Froggy Game:** https://appbrewery.github.io/flexboxfroggy/
 - **CSS Display Grid Weather Report:** https://aare.guru/bern/aare-wasser#bern
 - **CSS Grid Garden Game:** https://appbrewery.github.io/gridgarden/
+- **CSS Bootstrap Grid Px Breakpoints:** https://getbootstrap.com/docs/4.0/layout/grid/#grid-options
+- **CSS Bootstrap 'Heroes' Header Component:** https://getbootstrap.com/docs/5.0/examples/heroes/
 
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/

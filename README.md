@@ -608,6 +608,11 @@ git commit -m "Resolve merge conflicts"
 - **CSS Bootstrap Grid Px Breakpoints:** https://getbootstrap.com/docs/4.0/layout/grid/#grid-options
 - **CSS Bootstrap 'Heroes' Header Component:** https://getbootstrap.com/docs/5.0/examples/heroes/
 
+### Bootstrap Website Themes
+- **Bootstrap Themes:** https://themes.getbootstrap.com/
+- **Pheonix - Admin Dashboard & WebApp Template:** https://themes.getbootstrap.com/product/phoenix-admin-dashboard-webapp-template/
+- **Silicon - Business / Technology Template + UI Kit:** https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/
+
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/
 - **Reddit r/webdev:** https://www.reddit.com/r/webdev/

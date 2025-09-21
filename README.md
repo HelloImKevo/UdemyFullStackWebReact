@@ -7,6 +7,7 @@ A comprehensive guide for setting up a complete full-stack web development envir
 Become a Full-Stack Web Developer with this reference project covering:
 
 ### Front-End Technologies
+
 - **HTML 5** - Modern markup language for web structure
 - **CSS 3** - Advanced styling with Flexbox and Grid
 - **Bootstrap 5** - Responsive UI framework
@@ -16,6 +17,7 @@ Become a Full-Stack Web Developer with this reference project covering:
 - **jQuery** - JavaScript library for simplified DOM operations
 
 ### Back-End Technologies
+
 - **Node.js** - JavaScript runtime for server-side development
 - **Express.js** - Web application framework for Node.js
 - **EJS** - Templating engine for dynamic content
@@ -23,16 +25,19 @@ Become a Full-Stack Web Developer with this reference project covering:
 - **Authentication** - User login and security systems
 
 ### Database & Storage
+
 - **SQL** - Structured Query Language fundamentals
 - **PostgreSQL** - Advanced open-source relational database
 
 ### Development Tools & Workflow
+
 - **NPM** - Node Package Manager for dependency management
 - **Git & GitHub** - Version control and collaboration
 - **Bash Command Line** - Terminal/shell scripting
 - **VS Code** - Primary development environment
 
 ### Advanced Topics
+
 - **Web3 Development** - Blockchain and decentralized applications
 - **Internet Computer** - Modern blockchain platform
 - **Token Contracts** - Smart contract development
@@ -46,11 +51,13 @@ Become a Full-Stack Web Developer with this reference project covering:
 ### Prerequisites for All Platforms
 
 #### 1. Install Visual Studio Code
+
 VS Code is a free, powerful code editor from Microsoft that will be your primary development environment.
 
 **Download:** https://code.visualstudio.com/
 
 **Key Features:**
+
 - IntelliSense code completion
 - Integrated terminal
 - Git integration
@@ -58,11 +65,13 @@ VS Code is a free, powerful code editor from Microsoft that will be your primary
 - Cross-platform support
 
 #### 2. Install Google Chrome
+
 Chrome provides the best developer tools suite for web development, even if you prefer another browser for daily use.
 
 **Download:** https://www.google.com/intl/en_uk/chrome/
 
 **Developer Tools Include:**
+
 - Element inspector
 - Network monitoring
 - JavaScript debugger
@@ -73,13 +82,14 @@ Chrome provides the best developer tools suite for web development, even if you 
 
 Install these extensions to enhance your development experience:
 
-| Extension | Purpose | Install Link |
-|-----------|---------|--------------|
-| **Live Preview** | Local development server with live reload | [Install](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) |
-| **Prettier** | Code formatter for consistent styling | [Install](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) |
+| Extension        | Purpose                                     | Install Link                                                                                  |
+| ---------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **Live Preview** | Local development server with live reload   | [Install](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)          |
+| **Prettier**     | Code formatter for consistent styling       | [Install](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)         |
 | **vscode-icons** | File and folder icons for better navigation | [Install](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) |
 
 **Additional Recommended Extensions:**
+
 - **ES7+ React/Redux/React-Native snippets** - React code snippets
 - **Bracket Pair Colorizer** - Color-coded bracket matching
 - **GitLens** - Enhanced Git capabilities
@@ -250,9 +260,9 @@ JavaScript is a versatile, high-level programming language that runs in web brow
 
 ```javascript
 // Variable declarations
-let name = "John";          // String
-const age = 30;             // Number (immutable)
-var isActive = true;        // Boolean (avoid var, use let/const)
+let name = "John"; // String
+const age = 30; // Number (immutable)
+var isActive = true; // Boolean (avoid var, use let/const)
 
 // Data types
 let string = "Hello World";
@@ -269,7 +279,7 @@ let undefinedValue = undefined;
 ```javascript
 // Function declaration
 function greet(name) {
-    return `Hello, ${name}!`;
+  return `Hello, ${name}!`;
 }
 
 // Arrow function (ES6+)
@@ -277,11 +287,14 @@ const greet = (name) => `Hello, ${name}!`;
 
 // Function with multiple parameters
 const calculate = (a, b, operation) => {
-    switch(operation) {
-        case 'add': return a + b;
-        case 'subtract': return a - b;
-        default: return 0;
-    }
+  switch (operation) {
+    case "add":
+      return a + b;
+    case "subtract":
+      return a - b;
+    default:
+      return 0;
+  }
 };
 ```
 
@@ -290,17 +303,17 @@ const calculate = (a, b, operation) => {
 ```javascript
 // Object creation and manipulation
 const person = {
-    name: "Alice",
-    age: 25,
-    greet() {
-        return `Hi, I'm ${this.name}`;
-    }
+  name: "Alice",
+  age: 25,
+  greet() {
+    return `Hi, I'm ${this.name}`;
+  },
 };
 
 // Array methods
 const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(n => n * 2);
-const evens = numbers.filter(n => n % 2 === 0);
+const doubled = numbers.map((n) => n * 2);
+const evens = numbers.filter((n) => n % 2 === 0);
 const sum = numbers.reduce((acc, n) => acc + n, 0);
 ```
 
@@ -309,31 +322,33 @@ const sum = numbers.reduce((acc, n) => acc + n, 0);
 ```javascript
 // Promises
 const fetchData = () => {
-    return new Promise((resolve, reject) => {
-        // Async operation
-        setTimeout(() => resolve("Data received"), 1000);
-    });
+  return new Promise((resolve, reject) => {
+    // Async operation
+    setTimeout(() => resolve("Data received"), 1000);
+  });
 };
 
 // Async/Await (modern approach)
 const getData = async () => {
-    try {
-        const data = await fetchData();
-        console.log(data);
-    } catch (error) {
-        console.error("Error:", error);
-    }
+  try {
+    const data = await fetchData();
+    console.log(data);
+  } catch (error) {
+    console.error("Error:", error);
+  }
 };
 ```
 
 ### JavaScript Ecosystem Overview
 
 #### Package Managers
+
 - **NPM** - Default Node.js package manager
 - **Yarn** - Alternative package manager with improved performance
 - **PNPM** - Efficient package manager with shared dependencies
 
 #### Key Node.js Concepts
+
 - **Modules** - CommonJS (`require()`) and ES6 (`import/export`)
 - **Event Loop** - Non-blocking I/O operations
 - **Middleware** - Functions that execute during request/response cycle
@@ -441,24 +456,24 @@ DELETE FROM users WHERE id = 1;
 
 ```javascript
 // Using pg (node-postgres) library
-const { Pool } = require('pg');
+const { Pool } = require("pg");
 
 const pool = new Pool({
-    user: 'your_username',
-    host: 'localhost',
-    database: 'your_database',
-    password: 'your_password',
-    port: 5432,
+  user: "your_username",
+  host: "localhost",
+  database: "your_database",
+  password: "your_password",
+  port: 5432,
 });
 
 // Query example
 const getUsers = async () => {
-    try {
-        const result = await pool.query('SELECT * FROM users');
-        return result.rows;
-    } catch (error) {
-        console.error('Database error:', error);
-    }
+  try {
+    const result = await pool.query("SELECT * FROM users");
+    return result.rows;
+  } catch (error) {
+    console.error("Database error:", error);
+  }
 };
 ```
 
@@ -471,6 +486,7 @@ const getUsers = async () => {
 Web3 represents the next evolution of the internet, built on blockchain technology and focused on decentralization, user ownership, and trustless interactions.
 
 #### Key Concepts:
+
 - **Blockchain** - Distributed ledger technology
 - **Smart Contracts** - Self-executing contracts with code
 - **DApps** - Decentralized applications
@@ -613,6 +629,9 @@ git commit -m "Resolve merge conflicts"
 - **Pheonix - Admin Dashboard & WebApp Template:** https://themes.getbootstrap.com/product/phoenix-admin-dashboard-webapp-template/
 - **Silicon - Business / Technology Template + UI Kit:** https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/
 
+### Code Style Guides
+- **Idiomatic JS Guide:** https://github.com/rwaldron/idiomatic.js/
+
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/
 - **Reddit r/webdev:** https://www.reddit.com/r/webdev/
@@ -634,4 +653,4 @@ git commit -m "Resolve merge conflicts"
 
 ---
 
-*This guide serves as a comprehensive starting point for enterprise-level full-stack web development. Keep this documentation updated as new tools and best practices emerge in the rapidly evolving JavaScript ecosystem.*
+_This guide serves as a comprehensive starting point for enterprise-level full-stack web development. Keep this documentation updated as new tools and best practices emerge in the rapidly evolving JavaScript ecosystem._

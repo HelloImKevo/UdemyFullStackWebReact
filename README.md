@@ -632,6 +632,9 @@ git commit -m "Resolve merge conflicts"
 ### Code Style Guides
 - **Idiomatic JS Guide:** https://github.com/rwaldron/idiomatic.js/
 
+### Useful Plugins
+- **HTML DOM Tree Visualization**: https://chromewebstore.google.com/detail/html-tree-generator/dlbbmhhaadfnbbdnjalilhdakfmiffeg?pli=1
+
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/
 - **Reddit r/webdev:** https://www.reddit.com/r/webdev/

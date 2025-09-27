@@ -15,6 +15,21 @@ for (let i = 0; i < drumButtons.length; i++) {
   });
 }
 
+// Add keyboard event listener to the entire document
+document.addEventListener("keydown", function(event) {
+  // Get the key pressed
+  const keyPressed = event.key.toLowerCase();
+  
+  // Check if the key pressed is one of our drum buttons
+  if ("wasdjkl".includes(keyPressed)) {
+    // Play the corresponding sound
+    playSound(keyPressed);
+    
+    // Add animation to the button
+    buttonAnimation(keyPressed);
+  }
+});
+
 // Function to play the appropriate sound based on the button
 function playSound(key) {
   switch (key) {

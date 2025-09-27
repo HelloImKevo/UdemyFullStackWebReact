@@ -1,0 +1,13 @@
+{
+  "name": "drum-kit",
+  "version": "1.0.0",
+  "description": "Interactive Drum Kit with TypeScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}

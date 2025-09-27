@@ -609,9 +609,12 @@ git commit -m "Resolve merge conflicts"
 
 ### Learning Resources
 - **MDN Web Docs:** https://developer.mozilla.org/
+- **MDN DOM Events:** https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events
 - **JavaScript.info:** https://javascript.info/
 - **Node.js Best Practices:** https://github.com/goldbergyoni/nodebestpractices
 - **React Patterns:** https://reactpatterns.com/
+- **JavaScript and CSS Minifier:**: https://www.minifier.org/
+- **jQuery Minified Source:** https://code.jquery.com/jquery-3.7.1.min.js
 
 ### Colors, Themes, Responsive Design
 - **CSS Named Colors:** https://developer.mozilla.org/en-US/docs/Web/CSS/named-color

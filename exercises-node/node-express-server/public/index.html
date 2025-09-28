@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Demo Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+        #response {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-left: 3px solid #4CAF50;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Express.js Demo Page</h1>
+    <p>This page is served as a static file from the public directory.</p>
+    
+    <div class="container">
+        <h2>Test POST Request</h2>
+        <form id="userForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" required>
+            </div>
+            <button type="submit" class="btn">Create User</button>
+        </form>
+        
+        <div id="response"></div>
+    </div>
+    
+    <div class="container">
+        <h2>Test GET Request</h2>
+        <button id="getUsersBtn" class="btn">Get All Users</button>
+        <div id="usersResponse"></div>
+    </div>
+    
+    <script>
+        document.getElementById('userForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const role = document.getElementById('role').value;
+            
+            try {
+                const response = await fetch('/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, role }),
+                });
+                
+                const data = await response.json();
+                
+                const responseDiv = document.getElementById('response');
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+                responseDiv.style.display = 'block';
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+        
+        document.getElementById('getUsersBtn').addEventListener('click', async function() {
+            try {
+                const response = await fetch('/api/users');
+                const users = await response.json();
+                
+                const usersResponseDiv = document.getElementById('usersResponse');
+                usersResponseDiv.innerHTML = '<pre>' + JSON.stringify(users, null, 2) + '</pre>';
+                usersResponseDiv.style.display = 'block';
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

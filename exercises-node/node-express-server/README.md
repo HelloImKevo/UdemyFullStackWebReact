@@ -103,19 +103,83 @@ Kill a process using the port (replace PID with the process ID from the netstat 
 taskkill /F /PID PID
 ```
 
-### Development Mode
+### Development Mode with Nodemon
 
-If you have nodemon installed, you can use the dev script for automatic server restarts during development:
+[Nodemon](https://nodemon.io/) is a utility that monitors for changes in your source code and automatically restarts your server, which is extremely helpful during development.
 
-```bash
-npm run dev
-```
+#### Installing Nodemon
 
-or if nodemon is not installed globally:
+You can install Nodemon in two ways:
 
-```bash
-npx nodemon index.js
-```
+1. **As a development dependency for your project** (recommended):
+   ```bash
+   npm install --save-dev nodemon
+   ```
+   This adds nodemon to your project's package.json under devDependencies.
+
+2. **Globally on your machine**:
+   ```bash
+   npm install -g nodemon
+   ```
+   This allows you to use nodemon for any project on your system.
+
+#### Using Nodemon
+
+Once installed, you can use Nodemon in several ways:
+
+1. **Using the npm script** (recommended):
+   ```bash
+   npm run dev
+   ```
+   This uses the script defined in package.json: `"dev": "nodemon index.js"`
+
+2. **Using npx** (if installed as a project dependency):
+   ```bash
+   npx nodemon index.js
+   ```
+
+3. **Directly** (if installed globally):
+   ```bash
+   nodemon index.js
+   ```
+
+#### Configuring Nodemon
+
+You can customize Nodemon's behavior by:
+
+1. **Command line arguments**:
+   ```bash
+   nodemon --ext js,json,html --ignore public/ index.js
+   ```
+   This watches .js, .json, and .html files, but ignores changes in the public folder.
+
+2. **Creating a configuration file** named `nodemon.json` in your project root:
+   ```json
+   {
+     "watch": ["index.js", "middleware.js", "routes/"],
+     "ext": "js,json",
+     "ignore": ["*.test.js", "public/"],
+     "delay": "1000"
+   }
+   ```
+
+3. **Adding configuration to package.json**:
+   ```json
+   {
+     "nodemonConfig": {
+       "watch": ["index.js", "middleware.js"],
+       "ext": "js,json"
+     }
+   }
+   ```
+
+#### Nodemon Features
+
+- **Auto-restart**: Server restarts when files change
+- **Watch specific files**: Configure which files to monitor
+- **Delay option**: Add delay before restart to handle many simultaneous file changes
+- **Extension filtering**: Only watch certain file types
+- **Ignore patterns**: Exclude directories or files from triggering restarts
 
 ## API Endpoints
 
@@ -135,11 +199,80 @@ npx nodemon index.js
 node-express-server/
 ├── index.js        # Main server file
 ├── middleware.js   # Custom middleware definitions
+├── nodemon.json    # Nodemon configuration for development
 ├── package.json    # Project configuration and dependencies
 ├── README.md       # Project documentation (this file)
 └── public/         # Static files directory
     └── index.html  # Demo page with form submission
 ```
+
+## Debugging Node.js Applications
+
+Debugging is an essential part of Node.js development. Here are several approaches to debugging your Express application:
+
+### Console-Based Debugging
+
+The simplest method is using console statements:
+
+```javascript
+console.log('Variable value:', myVariable);
+console.error('Error occurred:', error);
+console.table(users); // Shows tabular data
+console.time('Operation') && console.timeEnd('Operation'); // Timing operations
+```
+
+### Node.js Built-in Debugger
+
+Node.js includes a built-in debugging client:
+
+1. Start your application in debug mode:
+   ```bash
+   node --inspect index.js
+   ```
+
+2. Open Chrome and navigate to: `chrome://inspect`
+
+3. Click on "Open dedicated DevTools for Node"
+
+### VS Code Debugging
+
+For VS Code users, create a `.vscode/launch.json` file:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Nodemon",
+      "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/index.js",
+      "restart": true,
+      "console": "integratedTerminal"
+    }
+  ]
+}
+```
+
+Then press F5 to start debugging with breakpoints support.
+
+### Debugging with Nodemon
+
+You can combine Nodemon with the debugger:
+
+```bash
+nodemon --inspect index.js
+```
+
+This enables automatic restart while keeping the debugging connection.
 
 ## NPM Scripts
 
@@ -148,14 +281,11 @@ This project uses npm scripts to simplify running common tasks. The following sc
 | Script | Command | Description |
 |--------|---------|-------------|
 | `npm start` | `node index.js` | Starts the server |
-| `npm run dev` | `nodemon index.js` | Starts the server with automatic restart on file changes (requires nodemon) |
+| `npm run dev` | `nodemon index.js` | Starts the server with automatic restart on file changes |
+| `npm run debug` | `nodemon --inspect index.js` | Starts the server in debug mode with automatic restart |
 | `npm test` | `echo "Error: no test specified" && exit 1` | Placeholder for running tests |
 
-To install nodemon as a development dependency:
-
-```bash
-npm install --save-dev nodemon
-```
+Nodemon is already included as a dev dependency in this project, so you don't need to install it separately. Just run `npm install` to set up all dependencies.
 
 ## Express.js Concepts
 

@@ -112,46 +112,46 @@ taskkill /F /PID PID
 You can install Nodemon in two ways:
 
 1. **As a development dependency for your project** (recommended):
-   ```bash
-   npm install --save-dev nodemon
-   ```
-   This adds nodemon to your project's package.json under devDependencies.
+```bash
+npm install --save-dev nodemon
+```
+This adds nodemon to your project's package.json under devDependencies.
 
 2. **Globally on your machine**:
-   ```bash
-   npm install -g nodemon
-   ```
-   This allows you to use nodemon for any project on your system.
+```bash
+npm install -g nodemon
+```
+This allows you to use nodemon for any project on your system.
 
 #### Using Nodemon
 
 Once installed, you can use Nodemon in several ways:
 
 1. **Using the npm script** (recommended):
-   ```bash
-   npm run dev
-   ```
-   This uses the script defined in package.json: `"dev": "nodemon index.js"`
+```bash
+npm run dev
+```
+This uses the script defined in package.json: `"dev": "nodemon index.js"`
 
 2. **Using npx** (if installed as a project dependency):
-   ```bash
-   npx nodemon index.js
-   ```
+```bash
+npx nodemon index.js
+```
 
 3. **Directly** (if installed globally):
-   ```bash
-   nodemon index.js
-   ```
+```bash
+nodemon index.js
+```
 
 #### Configuring Nodemon
 
 You can customize Nodemon's behavior by:
 
 1. **Command line arguments**:
-   ```bash
-   nodemon --ext js,json,html --ignore public/ index.js
-   ```
-   This watches .js, .json, and .html files, but ignores changes in the public folder.
+```bash
+nodemon --ext js,json,html --ignore public/ index.js
+```
+This watches .js, .json, and .html files, but ignores changes in the public folder.
 
 2. **Creating a configuration file** named `nodemon.json` in your project root:
    ```json

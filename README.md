@@ -616,6 +616,15 @@ git commit -m "Resolve merge conflicts"
 - **JavaScript and CSS Minifier:**: https://www.minifier.org/
 - **jQuery Minified Source:** https://code.jquery.com/jquery-3.7.1.min.js
 
+### HTTP Status Codes
+*Attributed to Sander Hoogendoorn - ditisagile.nl*  
+
+- **1xx.** Hold on
+- **2xx.** Here you go
+- **3xx.** Go away
+- **4xx.** You f*cked up
+- **5xx.** I f*cked up
+
 ### Colors, Themes, Responsive Design
 - **CSS Named Colors:** https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
 - **Color Hunt Palettes:** https://colorhunt.co/

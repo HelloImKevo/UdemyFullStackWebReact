@@ -24,6 +24,182 @@ Become a Full-Stack Web Developer with this reference project covering:
 - **REST APIs** - RESTful web service architecture
 - **Authentication** - User login and security systems
 
+### Templating Languages
+
+Templating languages allow you to generate dynamic HTML by embedding programming logic into HTML templates. They enable separation of presentation (HTML) from business logic (JavaScript/Python/PHP).
+
+#### **EJS (Embedded JavaScript)**
+- **Language**: JavaScript
+- **Framework**: Express.js (Node.js)
+- **Syntax**: `<%= variable %>` for output, `<% code %>` for logic
+- **Use Case**: Simple, JavaScript-based templating for Node.js applications
+
+```ejs
+<!-- EJS Example -->
+<h1>Welcome <%= username %>!</h1>
+<% if (isLoggedIn) { %>
+  <p>You are logged in</p>
+<% } else { %>
+  <p>Please log in</p>
+<% } %>
+
+<ul>
+  <% items.forEach(function(item) { %>
+    <li><%= item.name %></li>
+  <% }); %>
+</ul>
+```
+
+#### **Handlebars**
+- **Language**: JavaScript
+- **Framework**: Express.js, Ember.js
+- **Syntax**: `{{variable}}` for output, `{{#if}}` for logic
+- **Use Case**: Logic-less templates with minimal programming constructs
+
+```handlebars
+<!-- Handlebars Example -->
+<h1>Welcome {{username}}!</h1>
+{{#if isLoggedIn}}
+  <p>You are logged in</p>
+{{else}}
+  <p>Please log in</p>
+{{/if}}
+
+<ul>
+  {{#each items}}
+    <li>{{this.name}}</li>
+  {{/each}}
+</ul>
+```
+
+#### **Pug (formerly Jade)**
+- **Language**: JavaScript
+- **Framework**: Express.js (Node.js)
+- **Syntax**: Indentation-based, no closing tags
+- **Use Case**: Clean, concise templates with minimal syntax
+
+```pug
+// Pug Example
+h1 Welcome #{username}!
+if isLoggedIn
+  p You are logged in
+else
+  p Please log in
+
+ul
+  each item in items
+    li= item.name
+```
+
+#### **Twig**
+- **Language**: PHP
+- **Framework**: Symfony, Laravel (Blade is more common)
+- **Syntax**: `{{ variable }}` for output, `{% code %}` for logic
+- **Use Case**: Secure, fast templating for PHP applications
+
+```twig
+{# Twig Example #}
+<h1>Welcome {{ username }}!</h1>
+{% if isLoggedIn %}
+  <p>You are logged in</p>
+{% else %}
+  <p>Please log in</p>
+{% endif %}
+
+<ul>
+  {% for item in items %}
+    <li>{{ item.name }}</li>
+  {% endfor %}
+</ul>
+```
+
+#### **Jinja2**
+- **Language**: Python
+- **Framework**: Flask, Django (uses its own template engine)
+- **Syntax**: `{{ variable }}` for output, `{% code %}` for logic
+- **Use Case**: Powerful templating for Python web applications
+
+```jinja
+{# Jinja2 Example #}
+<h1>Welcome {{ username }}!</h1>
+{% if isLoggedIn %}
+  <p>You are logged in</p>
+{% else %}
+  <p>Please log in</p>
+{% endif %}
+
+<ul>
+  {% for item in items %}
+    <li>{{ item.name }}</li>
+  {% endfor %}
+</ul>
+```
+
+#### **Templating Language Comparison**
+
+| Feature | EJS | Handlebars | Pug | Twig | Jinja2 |
+|---------|-----|------------|-----|------|--------|
+| **Language** | JavaScript | JavaScript | JavaScript | PHP | Python |
+| **Syntax Style** | Embedded JS | Mustache-like | Indentation | Django-like | Django-like |
+| **Learning Curve** | Easy | Easy | Moderate | Easy | Easy |
+| **Logic Complexity** | Full JS | Limited | Full JS | Full PHP | Full Python |
+| **Auto-escaping** | Manual | Auto | Manual | Auto | Auto |
+| **Performance** | Fast | Fast | Very Fast | Fast | Fast |
+| **Popular With** | Express.js | Ember.js | Express.js | Symfony | Flask |
+
+#### **When to Use Each:**
+
+- **EJS**: When you want JavaScript logic directly in templates and familiarity with HTML
+- **Handlebars**: When you need logic-less templates and reusable components
+- **Pug**: When you prefer clean, minimal syntax and don't mind learning new syntax
+- **Twig**: When building PHP applications, especially with Symfony framework
+- **Jinja2**: When developing Python web applications with Flask
+
+#### **Common Features:**
+
+- **Variable Output**: Display dynamic data
+- **Conditionals**: If/else logic for conditional rendering
+- **Loops**: Iterate over arrays and objects
+- **Partials/Includes**: Reusable template components
+- **Filters**: Transform data during output (e.g., uppercase, date formatting)
+- **Inheritance**: Extend base templates for consistent layouts
+
+#### **Installation Examples:**
+
+```bash
+# EJS
+npm install ejs
+
+# Handlebars
+npm install express-handlebars
+
+# Pug
+npm install pug
+
+# Twig (PHP - via Composer)
+composer require "twig/twig:^3.0"
+
+# Jinja2 (Python - via pip)
+pip install Jinja2
+```
+
+#### **Express.js Setup Examples:**
+
+```javascript
+// EJS Setup
+app.set('view engine', 'ejs');
+app.render('index', { username: 'John' });
+
+// Handlebars Setup
+const exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+// Pug Setup
+app.set('view engine', 'pug');
+app.render('index', { username: 'John' });
+```
+
 ### Database & Storage
 
 - **SQL** - Structured Query Language fundamentals

@@ -258,11 +258,12 @@ Chrome provides the best developer tools suite for web development, even if you 
 
 Install these extensions to enhance your development experience:
 
-| Extension        | Purpose                                     | Install Link                                                                                  |
-| ---------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **Live Preview** | Local development server with live reload   | [Install](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)          |
-| **Prettier**     | Code formatter for consistent styling       | [Install](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)         |
-| **vscode-icons** | File and folder icons for better navigation | [Install](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) |
+| Extension            | Purpose                                     | Install Link                                                                                           |
+| -------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Live Preview**     | Local development server with live reload   | [Install](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)                   |
+| **Prettier**         | Code formatter for consistent styling       | [Install](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)                  |
+| **vscode-icons**     | File and folder icons for better navigation | [Install](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)          |
+| **EJS lang support** | Support EJS templating language             | [Install](https://marketplace.visualstudio.com/items?itemName=DigitalBrainstem.javascript-ejs-support) |
 
 **Additional Recommended Extensions:**
 

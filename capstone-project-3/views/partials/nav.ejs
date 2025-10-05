@@ -1,0 +1,18 @@
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="logo">
+        <i class="fas fa-blog"></i>
+        <span>My Blog</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="<%= typeof page !== 'undefined' && page === 'home' ? 'active' : '' %>">
+          <i class="fas fa-home"></i> Home
+        </a></li>
+        <li><a href="/new" class="btn-primary">
+          <i class="fas fa-plus"></i> New Post
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main class="main-content">

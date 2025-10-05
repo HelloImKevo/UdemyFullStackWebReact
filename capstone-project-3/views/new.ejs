@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+<div class="container">
+  <div class="form-container">
+    <div class="form-header">
+      <h1><i class="fas fa-plus-circle"></i> Create New Post</h1>
+      <p>Share your thoughts and ideas with the world</p>
+    </div>
+    
+    <% if (error) { %>
+      <div class="alert alert-error">
+        <i class="fas fa-exclamation-circle"></i>
+        <%= error %>
+      </div>
+    <% } %>
+    
+    <form action="/posts" method="POST" class="blog-form">
+      <div class="form-group">
+        <label for="title">
+          <i class="fas fa-heading"></i> Post Title *
+        </label>
+        <input 
+          type="text" 
+          id="title" 
+          name="title" 
+          placeholder="Enter an engaging title for your post" 
+          required
+          maxlength="200"
+          autofocus
+        >
+        <small class="form-help">A clear, compelling title helps readers find your content</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="author">
+          <i class="fas fa-user-edit"></i> Author Name *
+        </label>
+        <input 
+          type="text" 
+          id="author" 
+          name="author" 
+          placeholder="Your name or pen name" 
+          required
+          maxlength="100"
+        >
+        <small class="form-help">How would you like to be credited?</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="content">
+          <i class="fas fa-align-left"></i> Content *
+        </label>
+        <textarea 
+          id="content" 
+          name="content" 
+          rows="15" 
+          placeholder="Write your blog post content here. Share your story, insights, or ideas..."
+          required
+        ></textarea>
+        <small class="form-help">Express yourself freely - there's no character limit</small>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn-primary btn-large">
+          <i class="fas fa-paper-plane"></i> Publish Post
+        </button>
+        <a href="/" class="btn-secondary btn-large">
+          <i class="fas fa-times"></i> Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

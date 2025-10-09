@@ -792,6 +792,8 @@ git commit -m "Resolve merge conflicts"
 - **React Patterns:** https://reactpatterns.com/
 - **JavaScript and CSS Minifier:**: https://www.minifier.org/
 - **jQuery Minified Source:** https://code.jquery.com/jquery-3.7.1.min.js
+- **Collection of .gitignore templates:** https://github.com/github/gitignore
+- **Learn Git Branching Interactive Demo:** https://learngitbranching.js.org/
 
 ### HTTP Status Codes
 *Attributed to Sander Hoogendoorn - ditisagile.nl*  
@@ -823,6 +825,14 @@ git commit -m "Resolve merge conflicts"
 
 ### Useful Plugins
 - **HTML DOM Tree Visualization**: https://chromewebstore.google.com/detail/html-tree-generator/dlbbmhhaadfnbbdnjalilhdakfmiffeg?pli=1
+
+### Helpful Open Source Projects
+- **Flappy Bird JS:** https://github.com/elmejdki/FlappyBird
+- **Flappy Bird JS - Live Demo:** https://zakariaeelmejdki.com/FlappyBird/
+- **QuakeJS by inolen:** https://github.com/inolen/quakejs
+- **Awesome Selfhosted:** https://github.com/awesome-selfhosted/awesome-selfhosted
+- **Wordle Clone - Word-Mastermind:** https://github.com/clupasq/word-mastermind
+- **Alamofire - HTTP networking library written in Swift:** https://github.com/Alamofire/Alamofire
 
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/

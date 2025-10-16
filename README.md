@@ -834,6 +834,11 @@ git commit -m "Resolve merge conflicts"
 - **Wordle Clone - Word-Mastermind:** https://github.com/clupasq/word-mastermind
 - **Alamofire - HTTP networking library written in Swift:** https://github.com/Alamofire/Alamofire
 
+### Useful Tools
+- **JSON Online Viewer:** https://jsonviewer.stack.hu/
+- **Where the ISS at:** https://wheretheiss.at/
+- **SVG Background Pattern Monster:** https://pattern.monster/
+
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/
 - **Reddit r/webdev:** https://www.reddit.com/r/webdev/

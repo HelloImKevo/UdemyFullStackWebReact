@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+    <h1><i class="fas fa-users"></i> Professional Dota 2 Teams</h1>
+    <p class="page-description">Browse the top professional Dota 2 teams ranked by their performance rating</p>
+</div>
+
+<% if (teams && teams.length > 0) { %>
+    <div class="stats-summary">
+        <div class="summary-item">
+            <i class="fas fa-trophy"></i>
+            <span class="summary-number"><%= teams.length %></span>
+            <span class="summary-label">Teams Listed</span>
+        </div>
+    </div>
+
+    <div class="teams-grid">
+        <% teams.forEach(team => { %>
+            <div class="team-card">
+                <div class="team-header">
+                    <% if (team.logo_url) { %>
+                        <img src="<%= team.logo_url %>" alt="<%= team.name %> logo" class="team-logo" onerror="this.style.display='none'">
+                    <% } else { %>
+                        <div class="team-logo-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    <% } %>
+                    <h3 class="team-name"><%= team.name || 'Unknown Team' %></h3>
+                    <% if (team.tag) { %>
+                        <span class="team-tag">[<%= team.tag %>]</span>
+                    <% } %>
+                </div>
+                
+                <div class="team-stats">
+                    <div class="stat-row">
+                        <span class="stat-label"><i class="fas fa-star"></i> Rating:</span>
+                        <span class="stat-value"><%= team.rating ? Math.round(team.rating) : 'N/A' %></span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label"><i class="fas fa-trophy"></i> Wins:</span>
+                        <span class="stat-value stat-wins"><%= formatNumber(team.wins) %></span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label"><i class="fas fa-times"></i> Losses:</span>
+                        <span class="stat-value stat-losses"><%= formatNumber(team.losses) %></span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label"><i class="fas fa-percentage"></i> Win Rate:</span>
+                        <span class="stat-value stat-winrate"><%= calculateWinRate(team.wins, team.losses) %>%</span>
+                    </div>
+                    <% if (team.last_match_time) { %>
+                        <div class="stat-row">
+                            <span class="stat-label"><i class="fas fa-calendar"></i> Last Match:</span>
+                            <span class="stat-value stat-date"><%= formatDate(team.last_match_time) %></span>
+                        </div>
+                    <% } %>
+                </div>
+                
+                <div class="team-footer">
+                    <a href="/team/<%= team.team_id %>" class="btn btn-small btn-primary">
+                        <i class="fas fa-info-circle"></i> View Details
+                    </a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <div class="empty-state">
+        <i class="fas fa-inbox"></i>
+        <h2>No Teams Found</h2>
+        <p>Unable to load team data at this time. Please try again later.</p>
+        <a href="/" class="btn btn-primary">Return Home</a>
+    </div>
+<% } %>
+
+<%- include('partials/footer') %>

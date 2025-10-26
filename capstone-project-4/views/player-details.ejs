@@ -1,0 +1,104 @@
+<%- include('partials/header') %>
+
+<div class="detail-page">
+    <div class="detail-header">
+        <a href="/players" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Players
+        </a>
+        
+        <div class="detail-title-section">
+            <% if (player.profile && player.profile.avatarfull) { %>
+                <img src="<%= player.profile.avatarfull %>" alt="Player avatar" class="detail-avatar">
+            <% } %>
+            <div>
+                <h1><%= player.profile?.personaname || 'Unknown Player' %></h1>
+                <% if (player.profile?.name) { %>
+                    <p class="player-real-name"><%= player.profile.name %></p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-grid">
+        <div class="detail-card">
+            <h2><i class="fas fa-chart-line"></i> Player Statistics</h2>
+            <div class="stats-list">
+                <% if (player.rank_tier) { %>
+                    <div class="stat-item">
+                        <span class="stat-label">Rank Tier</span>
+                        <span class="stat-value highlight"><%= player.rank_tier %></span>
+                    </div>
+                <% } %>
+                <% if (player.leaderboard_rank) { %>
+                    <div class="stat-item">
+                        <span class="stat-label">Leaderboard Rank</span>
+                        <span class="stat-value highlight">#<%= formatNumber(player.leaderboard_rank) %></span>
+                    </div>
+                <% } %>
+                <% if (winLoss) { %>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Wins</span>
+                        <span class="stat-value stat-wins"><%= formatNumber(winLoss.win) %></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Losses</span>
+                        <span class="stat-value stat-losses"><%= formatNumber(winLoss.lose) %></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Win Rate</span>
+                        <span class="stat-value stat-winrate"><%= calculateWinRate(winLoss.win, winLoss.lose) %>%</span>
+                    </div>
+                <% } %>
+                <% if (player.profile?.loccountrycode) { %>
+                    <div class="stat-item">
+                        <span class="stat-label">Country</span>
+                        <span class="stat-value"><%= player.profile.loccountrycode %></span>
+                    </div>
+                <% } %>
+            </div>
+            
+            <% if (player.profile?.profileurl) { %>
+                <div class="external-link">
+                    <a href="<%= player.profile.profileurl %>" target="_blank" rel="noopener" class="btn btn-small btn-secondary">
+                        <i class="fas fa-external-link-alt"></i> View Steam Profile
+                    </a>
+                </div>
+            <% } %>
+        </div>
+
+        <% if (recentMatches && recentMatches.length > 0) { %>
+            <div class="detail-card">
+                <h2><i class="fas fa-history"></i> Recent Matches</h2>
+                <div class="matches-list">
+                    <% recentMatches.slice(0, 10).forEach(match => { 
+                        const isWin = (match.player_slot < 128 && match.radiant_win) || (match.player_slot >= 128 && !match.radiant_win);
+                        const side = match.player_slot < 128 ? 'Radiant' : 'Dire';
+                    %>
+                        <div class="match-item <%= isWin ? 'match-win' : 'match-loss' %>">
+                            <div class="match-result">
+                                <span class="match-outcome"><%= isWin ? 'WIN' : 'LOSS' %></span>
+                                <span class="match-side"><%= side %></span>
+                            </div>
+                            <div class="match-details">
+                                <div class="match-hero">
+                                    <span class="hero-name">Hero ID: <%= match.hero_id %></span>
+                                </div>
+                                <div class="match-kda">
+                                    <span class="kda-stat"><%= match.kills %></span> /
+                                    <span class="kda-stat deaths"><%= match.deaths %></span> /
+                                    <span class="kda-stat"><%= match.assists %></span>
+                                </div>
+                            </div>
+                            <div class="match-meta">
+                                <span class="match-duration"><%= Math.floor(match.duration / 60) %> min</span>
+                                <span class="match-date"><%= formatDate(match.start_time) %></span>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

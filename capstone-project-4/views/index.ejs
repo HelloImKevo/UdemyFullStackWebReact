@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to Dota 2 Stats Viewer</h1>
+        <p class="hero-subtitle">Explore professional teams, players, heroes, and live matches powered by OpenDota API</p>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>Pro Teams</h3>
+                <p>Discover top professional Dota 2 teams and their performance statistics</p>
+                <a href="/teams" class="btn btn-primary">View Teams</a>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-user-ninja"></i>
+                <h3>Pro Players</h3>
+                <p>Browse elite players, their achievements, and recent match history</p>
+                <a href="/players" class="btn btn-primary">View Players</a>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-dragon"></i>
+                <h3>Heroes</h3>
+                <p>Explore all Dota 2 heroes with detailed statistics and win rates</p>
+                <a href="/heroes" class="btn btn-primary">View Heroes</a>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-broadcast-tower"></i>
+                <h3>Live Matches</h3>
+                <p>Watch ongoing professional matches in real-time</p>
+                <a href="/live" class="btn btn-primary">Watch Live</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="features-section">
+    <h2>Features</h2>
+    <div class="features-grid">
+        <div class="feature-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Real-Time Statistics</h3>
+            <p>Access up-to-date statistics from the OpenDota API including win rates, rankings, and performance metrics.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-trophy"></i>
+            <h3>Professional Teams</h3>
+            <p>Browse through top professional teams, their rosters, match histories, and tournament results.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-gamepad"></i>
+            <h3>Player Profiles</h3>
+            <p>Detailed player information including MMR, recent matches, hero preferences, and career statistics.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-fire"></i>
+            <h3>Live Matches</h3>
+            <p>Track ongoing professional matches with live updates and match details.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-search"></i>
+            <h3>Advanced Search</h3>
+            <p>Search for your favorite players and teams quickly with our intuitive search functionality.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Responsive Design</h3>
+            <p>Enjoy a seamless experience across all devices - desktop, tablet, and mobile.</p>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <h2>About Dota 2</h2>
+    <div class="about-content">
+        <p>
+            Dota 2 is a free-to-play multiplayer online battle arena (MOBA) game developed and published by Valve. 
+            Two teams of five players compete to destroy the opposing team's "Ancient" structure while defending their own.
+        </p>
+        <p>
+            This application provides comprehensive statistics and information about professional Dota 2 teams, players, 
+            and matches using the powerful OpenDota API. Whether you're a casual viewer or a hardcore esports fan, 
+            you'll find everything you need to stay updated with the competitive Dota 2 scene.
+        </p>
+        <div class="cta-buttons">
+            <a href="https://www.dota2.com/" target="_blank" rel="noopener" class="btn btn-secondary">
+                <i class="fas fa-external-link-alt"></i> Visit Dota 2
+            </a>
+            <a href="https://www.dota2.com/esports" target="_blank" rel="noopener" class="btn btn-secondary">
+                <i class="fas fa-trophy"></i> Dota 2 Esports
+            </a>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

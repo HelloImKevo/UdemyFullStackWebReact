@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+    <h1><i class="fas fa-broadcast-tower"></i> Live Professional Matches</h1>
+    <p class="page-description">Watch ongoing professional Dota 2 matches in real-time</p>
+</div>
+
+<% if (games && games.length > 0) { %>
+    <div class="stats-summary">
+        <div class="summary-item live-indicator">
+            <i class="fas fa-circle pulse"></i>
+            <span class="summary-number"><%= games.length %></span>
+            <span class="summary-label">Live Matches</span>
+        </div>
+    </div>
+
+    <div class="live-games-list">
+        <% games.forEach(game => { %>
+            <div class="live-game-card">
+                <div class="live-badge">
+                    <i class="fas fa-circle pulse"></i>
+                    <span>LIVE</span>
+                </div>
+                
+                <div class="game-teams">
+                    <div class="game-team radiant">
+                        <h3><%= game.radiant_team?.team_name || 'Radiant Team' %></h3>
+                        <% if (game.radiant_team?.team_logo) { %>
+                            <img src="<%= game.radiant_team.team_logo %>" alt="Radiant logo" class="team-logo-small">
+                        <% } %>
+                        <div class="team-score"><%= game.radiant_score || 0 %></div>
+                    </div>
+                    
+                    <div class="game-vs">
+                        <span>VS</span>
+                        <% if (game.game_time) { %>
+                            <div class="game-time"><%= Math.floor(game.game_time / 60) %>:<%= String(game.game_time % 60).padStart(2, '0') %></div>
+                        <% } %>
+                    </div>
+                    
+                    <div class="game-team dire">
+                        <h3><%= game.dire_team?.team_name || 'Dire Team' %></h3>
+                        <% if (game.dire_team?.team_logo) { %>
+                            <img src="<%= game.dire_team.team_logo %>" alt="Dire logo" class="team-logo-small">
+                        <% } %>
+                        <div class="team-score"><%= game.dire_score || 0 %></div>
+                    </div>
+                </div>
+                
+                <div class="game-info">
+                    <% if (game.league_id) { %>
+                        <span class="info-badge"><i class="fas fa-trophy"></i> League ID: <%= game.league_id %></span>
+                    <% } %>
+                    <% if (game.spectators !== undefined) { %>
+                        <span class="info-badge"><i class="fas fa-eye"></i> <%= formatNumber(game.spectators) %> watching</span>
+                    <% } %>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <div class="empty-state">
+        <i class="fas fa-bed"></i>
+        <h2>No Live Matches</h2>
+        <p>There are currently no professional matches being played. Check back later!</p>
+        <a href="/" class="btn btn-primary">Return Home</a>
+    </div>
+<% } %>
+
+<script>
+    // Auto-refresh live matches every 30 seconds
+    setTimeout(() => {
+        location.reload();
+    }, 30000);
+</script>
+
+<%- include('partials/footer') %>

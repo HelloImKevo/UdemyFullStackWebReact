@@ -1,0 +1,52 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="/">
+                <i class="fas fa-gamepad"></i>
+                <span>Dota 2 Stats</span>
+            </a>
+        </div>
+        
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/teams" class="nav-link"><i class="fas fa-users"></i> Teams</a></li>
+            <li><a href="/players" class="nav-link"><i class="fas fa-user"></i> Players</a></li>
+            <li><a href="/heroes" class="nav-link"><i class="fas fa-dragon"></i> Heroes</a></li>
+            <li><a href="/live" class="nav-link"><i class="fas fa-broadcast-tower"></i> Live</a></li>
+        </ul>
+        
+        <div class="nav-search">
+            <form action="/search" method="POST" class="search-form">
+                <input type="text" name="query" placeholder="Search players..." required>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-container')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    });
+</script>

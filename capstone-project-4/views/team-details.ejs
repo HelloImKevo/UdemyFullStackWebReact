@@ -1,0 +1,74 @@
+<%- include('partials/header') %>
+
+<div class="detail-page">
+    <div class="detail-header">
+        <a href="/teams" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Teams
+        </a>
+        
+        <div class="detail-title-section">
+            <% if (team.logo_url) { %>
+                <img src="<%= team.logo_url %>" alt="<%= team.name %> logo" class="detail-logo" onerror="this.style.display='none'">
+            <% } %>
+            <div>
+                <h1><%= team.name || 'Unknown Team' %></h1>
+                <% if (team.tag) { %>
+                    <p class="team-tag-large">[<%= team.tag %>]</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-grid">
+        <div class="detail-card">
+            <h2><i class="fas fa-chart-bar"></i> Team Statistics</h2>
+            <div class="stats-list">
+                <div class="stat-item">
+                    <span class="stat-label">Rating</span>
+                    <span class="stat-value highlight"><%= team.rating ? Math.round(team.rating) : 'N/A' %></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Wins</span>
+                    <span class="stat-value stat-wins"><%= formatNumber(team.wins) %></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Losses</span>
+                    <span class="stat-value stat-losses"><%= formatNumber(team.losses) %></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Win Rate</span>
+                    <span class="stat-value stat-winrate"><%= calculateWinRate(team.wins, team.losses) %>%</span>
+                </div>
+                <% if (team.last_match_time) { %>
+                    <div class="stat-item">
+                        <span class="stat-label">Last Match</span>
+                        <span class="stat-value"><%= formatDate(team.last_match_time) %></span>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <% if (players && players.length > 0) { %>
+            <div class="detail-card">
+                <h2><i class="fas fa-users"></i> Current Roster</h2>
+                <div class="roster-list">
+                    <% players.slice(0, 10).forEach(player => { %>
+                        <div class="roster-player">
+                            <div class="roster-player-info">
+                                <% if (player.is_current_team_member) { %>
+                                    <i class="fas fa-star roster-star" title="Current Member"></i>
+                                <% } %>
+                                <span class="roster-player-name"><%= player.name || 'Unknown Player' %></span>
+                            </div>
+                            <% if (player.games_played) { %>
+                                <span class="roster-games"><%= formatNumber(player.games_played) %> games</span>
+                            <% } %>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,69 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+    <h1><i class="fas fa-dragon"></i> Dota 2 Heroes</h1>
+    <p class="page-description">Explore all Dota 2 heroes with statistics</p>
+</div>
+
+<% if (heroes && heroes.length > 0) { %>
+    <div class="stats-summary">
+        <div class="summary-item">
+            <i class="fas fa-dragon"></i>
+            <span class="summary-number"><%= heroes.length %></span>
+            <span class="summary-label">Total Heroes</span>
+        </div>
+    </div>
+
+    <div class="heroes-grid">
+        <% heroes.forEach(hero => { 
+            const heroStat = heroStats.find(h => h.id === hero.id) || {};
+        %>
+            <div class="hero-card">
+                <div class="hero-image">
+                    <img src="https://cdn.cloudflare.steamstatic.com<%= hero.img %>" 
+                         alt="<%= hero.localized_name %>" 
+                         onerror="this.src='https://via.placeholder.com/256x144?text=Hero'">
+                </div>
+                <div class="hero-info">
+                    <h3 class="hero-name"><%= hero.localized_name %></h3>
+                    <div class="hero-roles">
+                        <% if (hero.roles && hero.roles.length > 0) { %>
+                            <% hero.roles.forEach(role => { %>
+                                <span class="role-badge"><%= role %></span>
+                            <% }); %>
+                        <% } %>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-attr">
+                            <span class="attr-label">Attack:</span>
+                            <span class="attr-value"><%= hero.attack_type || 'N/A' %></span>
+                        </div>
+                        <% if (heroStat.pro_pick) { %>
+                            <div class="hero-attr">
+                                <span class="attr-label">Pro Picks:</span>
+                                <span class="attr-value"><%= formatNumber(heroStat.pro_pick) %></span>
+                            </div>
+                        <% } %>
+                        <% if (heroStat.pro_win && heroStat.pro_pick) { %>
+                            <div class="hero-attr">
+                                <span class="attr-label">Pro Win Rate:</span>
+                                <span class="attr-value stat-winrate">
+                                    <%= calculateWinRate(heroStat.pro_win, heroStat.pro_pick - heroStat.pro_win) %>%
+                                </span>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <div class="empty-state">
+        <i class="fas fa-inbox"></i>
+        <h2>No Heroes Found</h2>
+        <p>Unable to load hero data at this time. Please try again later.</p>
+        <a href="/" class="btn btn-primary">Return Home</a>
+    </div>
+<% } %>
+
+<%- include('partials/footer') %>

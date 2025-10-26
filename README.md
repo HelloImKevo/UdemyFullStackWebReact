@@ -825,6 +825,7 @@ git commit -m "Resolve merge conflicts"
 
 ### Useful Plugins
 - **HTML DOM Tree Visualization**: https://chromewebstore.google.com/detail/html-tree-generator/dlbbmhhaadfnbbdnjalilhdakfmiffeg?pli=1
+- **Axios HTTP API for JavaScript:** https://axios-http.com/docs/intro
 
 ### Helpful Open Source Projects
 - **Flappy Bird JS:** https://github.com/elmejdki/FlappyBird

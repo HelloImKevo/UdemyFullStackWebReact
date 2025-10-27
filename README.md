@@ -839,6 +839,7 @@ git commit -m "Resolve merge conflicts"
 - **JSON Online Viewer:** https://jsonviewer.stack.hu/
 - **Where the ISS at:** https://wheretheiss.at/
 - **SVG Background Pattern Monster:** https://pattern.monster/
+- **Rapid API Hosting:** https://rapidapi.com/hub
 
 ### Community and Support
 - **Stack Overflow:** https://stackoverflow.com/

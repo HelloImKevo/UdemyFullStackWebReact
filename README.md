@@ -204,6 +204,7 @@ app.render('index', { username: 'John' });
 
 - **SQL** - Structured Query Language fundamentals
 - **PostgreSQL** - Advanced open-source relational database
+  - PostgreSQL Download: https://www.postgresql.org/download/
 
 ### Development Tools & Workflow
 

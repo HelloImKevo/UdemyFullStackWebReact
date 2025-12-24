@@ -130,25 +130,26 @@ INSERT INTO visited_countries (country_code) VALUES ('US'), ('GB'), ('FR');
 
 ### 4. Application Configuration
 
-Ensure your database connection settings in `solution1.js` match your local PostgreSQL setup:
+This project uses **environment variables** to manage sensitive database credentials securely.
 
-```javascript
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "your_password", // Update this to your PostgreSQL password
-  port: 5432,
-});
+1. Create a file named `.env` in the project root.
+2. Add your database configuration details:
+
+```env
+DB_USER=postgres
+DB_HOST=localhost
+DB_DATABASE=world
+DB_PASSWORD=your_actual_password
+DB_PORT=5432
+PORT=3000
 ```
 
-> **Note:** If you installed PostgreSQL via Homebrew, the default user is often your system username and there might be no password. You may need to create a `postgres` user or update the code to use your system username.
+> **Note:** The `.env` file is ignored by Git to prevent leaking secrets.
 
-To create a `postgres` user with password `123456` (matching the code):
+## Miscellaneous Helpful Commands
+
 ```bash
-psql postgres
-# Inside psql prompt:
-CREATE USER postgres WITH SUPERUSER PASSWORD '123456';
+npm uninstall dotenv helmet && cd exercises-psql/psql-travel-tracker && npm install dotenv helmet
 ```
 
 ## 🏃‍♂️ Running the Application
@@ -156,9 +157,28 @@ CREATE USER postgres WITH SUPERUSER PASSWORD '123456';
 Start the server:
 ```bash
 # Using nodemon
-nodemon solution1.js
+nodemon index.js
 ```
 
 Open URL in Browser:  
 http://localhost:3000/
+
+## 🛡️ Security Enhancements (OWASP Compliance)
+
+We have implemented several security best practices to harden the application:
+
+### 1. SQL Injection Prevention
+- **Parameterized Queries**: All database queries now use parameterized inputs (e.g., `$1`) instead of string concatenation. This prevents attackers from injecting malicious SQL code.
+- **Input Sanitization**: User input is trimmed and validated before processing.
+
+### 2. Secrets Management
+- **Environment Variables**: Database credentials are no longer hardcoded in `index.js`. They are loaded from a `.env` file using the `dotenv` package.
+- **Git Protection**: A `.gitignore` file ensures that `.env` and `node_modules` are never committed to version control.
+
+### 3. HTTP Security Headers
+- **Helmet Middleware**: We integrated `helmet` to automatically set secure HTTP headers (e.g., `Strict-Transport-Security`, `X-Content-Type-Options`), protecting against XSS, clickjacking, and other common attacks.
+
+### 4. Robust Error Handling & DoS Prevention
+- **Graceful Failure**: Database operations are wrapped in `try/catch` blocks to prevent server crashes on errors.
+- **Logic Handling**: The app now explicitly handles cases where a country is not found or already exists, preventing the server from hanging (a potential Denial of Service vector).
 

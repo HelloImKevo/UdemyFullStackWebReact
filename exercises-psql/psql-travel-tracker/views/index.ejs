@@ -373,13 +373,16 @@
   </section>
   <h2 class="total-count">Total Countries: <%=total%>
   </h2>
+  <div id="visited-data" data-countries="<%= JSON.stringify(countries) %>" style="display:none;"></div>
   <script>
-    const country_codes = "<%= countries %>".split(",") 
-    console.log(typeof ("<%= countries %>"))
+    const data = document.getElementById('visited-data').getAttribute('data-countries');
+    const country_codes = data ? JSON.parse(data) : [];
     country_codes.forEach(code => {
-      document.getElementById(code).style.fill = 'teal'
+      const element = document.getElementById(code);
+      if (element) {
+        element.style.fill = 'teal';
+      }
     });
-
   </script>
 </body>
 

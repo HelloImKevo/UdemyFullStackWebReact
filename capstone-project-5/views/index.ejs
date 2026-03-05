@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<div class="controls">
+    <h2>My Reading List</h2>
+    <div class="sort-controls">
+        <span>Sort by: </span>
+        <form action="/sort" method="GET">
+            <input type="hidden" name="sort" value="rating">
+            <button type="submit" class="btn">Rating</button>
+        </form>
+        <form action="/sort" method="GET">
+            <input type="hidden" name="sort" value="recency">
+            <button type="submit" class="btn">Recency</button>
+        </form>
+        <form action="/sort" method="GET">
+            <input type="hidden" name="sort" value="title">
+            <button type="submit" class="btn">Title</button>
+        </form>
+    </div>
+</div>
+
+<div class="book-grid">
+    <% if (books.length === 0) { %>
+        <div style="grid-column: 1 / -1; text-align: center; padding: 50px;">
+            <h3>No books found. Why not add one?</h3>
+            <br>
+            <a href="/new" class="btn btn-accent">Add First Book</a>
+        </div>
+    <% } %>
+
+    <% books.forEach(function(book) { %>
+        <div class="book-card">
+            <div class="book-cover">
+                <% if (book.isbn) { %>
+                    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Cover for <%= book.title %>">
+                <% } else { %>
+                    <span>No Cover</span>
+                <% } %>
+            </div>
+            <div class="book-details">
+                <div class="book-title"><%= book.title %></div>
+                <div class="book-author">by <%= book.author %></div>
+                <div class="book-meta">
+                    <span>Rating: <%= book.rating %>/10</span>
+                    <span>Read: <%= book.date_read ? new Date(book.date_read).toLocaleDateString() : 'N/A' %></span>
+                </div>
+                <div class="book-notes">
+                    <%= book.notes ? book.notes.substring(0, 150) + (book.notes.length > 150 ? '...' : '') : 'No notes yet.' %>
+                </div>
+                <div class="book-actions">
+                    <a href="/edit/<%= book.id %>" class="btn">Edit</a>
+                    <form action="/delete/<%= book.id %>" method="POST" onsubmit="return confirm('Are you sure?');">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+<%- include('partials/footer') %>

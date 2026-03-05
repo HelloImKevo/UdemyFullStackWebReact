@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+
+<div class="form-container">
+    <h2><%= (locals.book) ? 'Edit Book' : 'Add New Book' %></h2>
+
+    <% if (!locals.book) { %>
+        <div class="lookup-section" style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+            <label style="font-weight: normal;">Autofill details by ISBN:</label>
+            <form action="/new" method="GET" style="display: flex; gap: 10px;">
+                <input type="text" name="isbn" placeholder="e.g. 9780201616224" value="<%= (locals.prefill) ? prefill.isbn : '' %>">
+                <button type="submit" class="btn" style="white-space: nowrap;">Lookup</button>
+            </form>
+            <small style="color: #666;">Data fetched from Open Library API</small>
+        </div>
+    <% } %>
+
+    <form action="<%= (locals.book) ? '/edit/' + book.id : '/add' %>" method="POST">
+        <div class="form-group">
+            <label for="title">Book Title</label>
+            <input type="text" id="title" name="title" 
+                   value="<%= (locals.book) ? book.title : (locals.prefill ? prefill.title : '') %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" 
+                   value="<%= (locals.book) ? book.author : (locals.prefill ? prefill.author : '') %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="isbn">ISBN (for cover image)</label>
+            <input type="text" id="isbn" name="isbn" 
+                   value="<%= (locals.book) ? book.isbn : (locals.prefill ? prefill.isbn : '') %>" 
+                   placeholder="e.g., 9780132350884">
+            <small>Find ISBNs on <a href="https://openlibrary.org/" target="_blank">Open Library</a></small>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating (1-10)</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" value="<%= (locals.book) ? book.rating : '5' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="date_read">Date Read</label>
+            <input type="date" id="date_read" name="date_read" value="<%= (locals.book && book.date_read) ? new Date(book.date_read).toISOString().split('T')[0] : new Date().toISOString().split('T')[0] %>">
+        </div>
+
+        <div class="form-group">
+            <label for="notes">Notes & Review</label>
+            <textarea id="notes" name="notes" placeholder="Write your thoughts here..."><%= (locals.book) ? book.notes : '' %></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-accent"><%= (locals.book) ? 'Update Book' : 'Add Book' %></button>
+        <a href="/" class="btn" style="background-color: #95a5a6;">Cancel</a>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

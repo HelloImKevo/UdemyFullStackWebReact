@@ -161,6 +161,43 @@
   }
 }
 
+#exercises {
+  padding: 32px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    padding: 24px 20px;
+  }
+}
+
+.exercise-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.exercise-link {
+  color: var(--text-h);
+  font-size: 16px;
+  border-radius: 6px;
+  background: var(--accent-bg);
+  display: inline-flex;
+  padding: 10px 20px;
+  align-items: center;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+  border: 2px solid var(--accent-border);
+}
+
+.exercise-link:hover {
+  box-shadow: var(--shadow);
+}
+
 .ticks {
   position: relative;
   width: 100%;

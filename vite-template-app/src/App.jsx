@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -27,6 +28,20 @@ function App() {
         >
           Count is {count}
         </button>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="exercises">
+        <h2>Exercises</h2>
+        <p>Launch a micro exercise</p>
+        <ul className="exercise-list">
+          <li>
+            <Link to="/greeting" className="exercise-link">
+              Time-Based Greeting
+            </Link>
+          </li>
+        </ul>
       </section>
 
       <div className="ticks"></div>

@@ -18,6 +18,36 @@ Open the Vite app in a web browser: http://localhost:5173/
 
 ---
 
+## Exercise Launcher
+
+This app doubles as a **springboard** for micro exercise pages. The default Vite splash page includes an **Exercises** section with links that route to standalone exercise pages built with React.
+
+### Time-Based Greeting (`/greeting`)
+
+A single-page exercise demonstrating dynamic rendering and inline CSS in React.
+
+**Requirements:**
+- Display an `<h1>` greeting that changes based on the time of day:
+  - **Good Morning** — midnight to 12 PM
+  - **Good Afternoon** — 12 PM to 6 PM
+  - **Good Evening** — 6 PM to midnight
+- The heading uses the `.heading` class from `GreetingPage.css`.
+- The heading color changes dynamically via inline styles:
+  - Morning = **red**, Afternoon = **green**, Evening = **blue**
+- A `<input type="time">` picker lets the user change the time interactively (defaults to the current clock time on load).
+
+**Key files:**
+| File | Purpose |
+|------|---------|
+| `src/main.jsx` | Sets up `BrowserRouter` with routes for `/` and `/greeting` |
+| `src/App.jsx` | Splash page with the exercise launcher section |
+| `src/pages/GreetingPage.jsx` | Greeting exercise component |
+| `src/pages/GreetingPage.css` | Styles for the greeting page (`.heading` class) |
+
+**Added dependency:** `react-router-dom` — client-side routing between the splash page and exercise pages.
+
+---
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

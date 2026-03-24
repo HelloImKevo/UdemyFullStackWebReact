@@ -1,0 +1,63 @@
+.greeting-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  gap: 32px;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-family: var(--heading);
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -1.68px;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+.back-link {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.time-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.time-picker {
+  font-family: var(--mono);
+  font-size: 20px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.time-picker:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 36px;
+  }
+}

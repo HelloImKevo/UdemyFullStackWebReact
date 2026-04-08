@@ -31,6 +31,10 @@ dfx start --background
 
 # Deploys your canisters to the replica and generates your candid interface
 dfx deploy
+
+# Navigate to Canister URL, like:
+# http://127.0.0.1:8000/?canisterId=ryjl3-tyaaa-aaaaa-aaaba-cai
+# http://127.0.0.1:8000/?canisterId=r7inp-6aaaa-aaaaa-aaabq-cai&id=rrkah-fqaaa-aaaaa-aaaaq-cai
 ```
 
 Once the job completes, your application will be available at `http://localhost:8000?canisterId={asset_canister_id}`.
